@@ -3,7 +3,7 @@ var browserSync = require('browser-sync').create();
 var sass = require('gulp-sass');
 
 //compile sass into CSS & auto-inject into browsers
-gulp.task('sass', funtion() {
+gulp.task('sass', function() {
 	return gulp.src(['node_modules/bootstrap/scss/bootstrap.scss', 'src/scss/*.scss'])
 	.pipe(sass())
 	.pipe(gulp.dest("src/css"))
@@ -11,7 +11,7 @@ gulp.task('sass', funtion() {
 });
 
 //Move the javascript files into our /src/js folder
-gulp.task('js', funtion() {
+gulp.task('js', function() {
 	return gulp.src(['node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/jquery/dist/jquery.min.js','node_modules/tether/dist/tether.min.js'])
 	.pipe(gulp.dest('src/js'))
 	.pipe(browserSync.stream());
@@ -19,7 +19,7 @@ gulp.task('js', funtion() {
 
 
 //Static Server + watching scss/html files
-gulp.task('serve', ['sass'], funtion(){
+gulp.task('serve', ['sass'], function(){
 
 	browserSync.init({
 		server:"./src"
